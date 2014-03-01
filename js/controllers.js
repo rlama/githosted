@@ -7,8 +7,6 @@ angular.module('myApp.controllers', [])
 			if(!ls){
 				$location.url('/login');
 			}
-			
-	
 		$scope.slide = '';
 
         $rootScope.back = function() {
@@ -20,9 +18,9 @@ angular.module('myApp.controllers', [])
           $location.url(path);
         }
     }])
+
 	. controller('LoginCtrl', ['$scope', '$timeout', 'LDAP', '$location',  function ($scope,  $timeout , LDAP, $location) {
 			
-		    
 			$scope.formData = {
 				username: "username",
 				password: "password"
@@ -40,19 +38,19 @@ angular.module('myApp.controllers', [])
 				//$timeout(function(){$window.location.reload()}, 3000);
 				LDAP.setEmployees(data);
 				
-						$timeout($location.url('/employees'), 3000);
+						$timeout($location.url('/employees'), 1000);
 				});
 			};
 	}])
 	
-    .controller('EmployeeListCtrl', ['$timeout', '$rootScope','$scope', 'Employee', '$document' , '$window', function ($timeout,$rootScope, $scope, Employee, $document, $window) {
+    .controller('EmployeeListCtrl', ['$timeout', '$rootScope','$scope', 'Employee', '$document' , '$location', function ($timeout,$rootScope, $scope, Employee, $document, $location) {
 
 		//http://plnkr.co/edit/O5w0Fp?p=preview
 		
-		   var ls = localStorage.getItem('loggedIn');
-			if(!ls){
-				$location.url('/login');
-			}
+		/* var ls = localStorage.getItem('loggedIn');
+		if(!ls){
+			$location.url('/login');
+		} */
 			
 
 		$scope.employees = Employee.query();

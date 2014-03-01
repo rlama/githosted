@@ -13,11 +13,11 @@ angular.module('myApp', [
 config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(false).hashPrefix("");
 	$routeProvider.when('/preloader', {templateUrl: 'partials/preloader.html'});
-    $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
+   // $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
     $routeProvider.when('/employees', {templateUrl: 'partials/employee-list.html', controller: 'EmployeeListCtrl'});
     $routeProvider.when('/employees/:employeeId', {templateUrl: 'partials/employee-detail.html', controller: 'EmployeeDetailCtrl'});
     $routeProvider.when('/employees/:employeeId/reports', {templateUrl: 'partials/report-list.html', controller: 'ReportListCtrl'});
-    $routeProvider.otherwise({redirectTo: '/login'});
+    $routeProvider.otherwise({redirectTo: '/employees'});
 }])
 
 
@@ -70,6 +70,33 @@ config(['$routeProvider', '$locationProvider', function ($routeProvider, $locati
 		}	
 	}
 })
+.directive('authDemoApplication', function() {
+    return {
+	    restrict: 'C',
+		scope: { val: '=' },
+		link: function(scope, elem, attrs) {
+			//once Angular is started, remove class:
+			elem.removeClass('waiting-for-angular');
+		
+			var login = elem.find('#login-holder');
+			var main = elem.find('#content');
+		
+			login.hide();
+			scope.$watch('val', function(nv){
+				console.log(nv);
+			});
+		scope.$on('event:auth-loginRequired', function() {
+			login.slideDown('slow', function() {
+			main.hide();
+		  });
+		});
+		scope.$on('event:auth-loginConfirmed', function() {
+		  main.show();
+		  login.slideUp();
+		});
+	  }
+    }
+  })
 
 .directive('errSrc', function(){
 

@@ -6,8 +6,8 @@ $data = json_decode($json);
 
 //print_r($data);
 
-$username = 'user';//($_POST['username'])
-$password = 'pass';//($_POST['password'])
+$username = ($_POST['username']);
+$password = ($_POST['password']);
 
 
 if($username == 'user' && $password == 'pass')){

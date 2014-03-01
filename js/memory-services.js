@@ -74,22 +74,15 @@
 							method:"POST",
 							data: fdata,
 							cache: $angularCacheFactory.get('dataCache'),
-							url:'server/data.json',
-							
+							url:'server/callLDAP.php',
+							//url:'http://www.askthecockerel.com.au/intranet/mobile/callLDAP.php',
 						  }).success(function(data, status){
 							 
 								// replace invalid image path	
 							
-								for(var i=0; i<data.length; i++){
-									
-									data[i].Email = data[i].id+"@mercerbell.com.au";
-									data[i].Contact = "0123 456 789";
-									data[i].Username = "user"+data[i].id;
-									data[i].pic = "pics/"+data[i].Username ;
-								
+								 for(var i=0; i<data.length; i++){
+									data[i].pic = "pics/"+data[i].pic;
 								}  
-								
-								console.log(data);
 								
 								localStorage.setItem('eData', JSON.stringify(data));							 
 								localStorage.setItem('loggedIn', 'yes');	

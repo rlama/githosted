@@ -29,18 +29,32 @@
 	
 </head>
 
-<body ng-controller="MainCtrl">
+<body ng-controller="MainCtrl" class="auth-demo-application waiting-for-angular" val="testtesttest">
 <!-- The splash screen must be first -->
     <div class="splash" ng-cloak>
       <h2>Loading</h2>
     </div>
-	<div ng-view ng-class="slide"></div>
-
+	
+	<div id="login-holder" class="topcoat-list__container center " style="top:138px;" >
+		<div id="loginbox">
+			<div id="login-inner" ng:controller="LoginCtrl">
+				<form name="login" action= "#" >
+					<br><input type="text" class="topcoat-text-input--large" ng-model="formData.username"	placeholder="{{formData.username}}"> <br> <br>
+					<input type="password" class="topcoat-text-input--large" ng-model="formData.password" placeholder="{{formData.password}}"> <br> <br>
+					<button class="topcoat-button--large--cta loginBtn"  ng-click="submitForm()" >LOGIN</button>
+				</form>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	
+	<div id="content" ng-view ng-class="slide"></div>
 
 	<link href="topcoat/css/topcoat-mobile-light.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <script src="lib/jquery.min.js"></script>
     <script src="lib/angular.js"></script>
+    <!-- <script src="lib/http-auth-interceptor.js"></script> -->
     <script src="lib/angular-cache.min.js"></script>
     <script src="lib/angular-touch.js"></script>
     <script src="lib/angular-resource.js"></script>
