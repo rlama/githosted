@@ -1,19 +1,3 @@
-/* feat: before angular is ready, display loading animation */
-body.waiting-for-angular div#content-outer {
-  display: none;
-}
-body.waiting-for-angular div#initializing-panel {
-  display: block;
-  background: url(../images/loading.gif) center center no-repeat;
-  position:absolute;
-  top:0;
-  left:0;
-  width: 100%;
-  height: 100%;
-}
-
-
-
 .back-button {
     top: 10px;
     position: absolute;

@@ -1,0 +1,28 @@
+<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <a class="topcoat-icon-button--quiet back-button" href="" ng-click="back()">
+            <span class="topcoat-icon topcoat-icon--back"></span>
+        </a>
+    </div>
+    <div class="topcoat-navigation-bar__item center half">
+        <h1 class="topcoat-navigation-bar__title">Employee</h1>
+    </div>
+</div>
+
+<div class='details'>
+    <img ng-src="{{employee.pic}}" err-src="pics/no_photo.jpg"  class="employee-image">
+    <h1>{{employee.firstName}} {{employee.lastName}}</h1>
+    <h2>{{employee.title}}</h2>
+    <h2>{{employee.city}}</h2>
+    <div class="topcoat-list__container scroller">
+        <ul class="topcoat-list list actions">
+           <!-- <li class="topcoat-list__item" ng-show="employee.managerId"><a ng-click="go('employees/' + employee.managerId)"><p>View Manager</p><p>{{employee.managerName}}</p><div class="action-icon icon-manager"/></a></li>-->
+            <!--<li class="topcoat-list__item" ng-show="employee.reports"><a ng-click="go('employees/' + employee.id + '/reports')"><p>View Direct Reports</p><p>{{employee.reports}}</p><div class="action-icon icon-reports"/></a></li>-->
+            <!--<li class="topcoat-list__item" ng-show="employee.officePhone"><a href="tel:{{employee.officePhone}}"><p>Call Office</p><p>{{employee.officePhone}}</p><div class="action-icon icon-call"/></a></li>-->
+            <li class="topcoat-list__item" ng-show="employee.Contact"><a href="tel:{{employee.Contact}}"><p>Mobile</p><p>{{employee.Contact}}</p><div class="action-icon icon-call"/></a></li>
+            <li class="topcoat-list__item" ng-show="employee.Contact"><a href="sms:{{employee.Contact}}"><p>SMS</p><p>{{employee.Contact}}</p><div class="action-icon icon-sms"/></a></li>
+            <li class="topcoat-list__item" ng-show="employee.Email"><a href="mailto:{{employee.Email}}"><p>Email</p><p>{{employee.Email}}</p><div class="action-icon icon-mail"/></a></li>
+        </ul>
+    </div>
+</div>
+                
