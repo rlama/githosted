@@ -13,11 +13,11 @@ angular.module('myApp', [
 config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(false).hashPrefix("");
 	$routeProvider.when('/preloader', {templateUrl: 'partials/preloader.html'});
-   // $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
+    $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
     $routeProvider.when('/employees', {templateUrl: 'partials/employee-list.html', controller: 'EmployeeListCtrl'});
     $routeProvider.when('/employees/:employeeId', {templateUrl: 'partials/employee-detail.html', controller: 'EmployeeDetailCtrl'});
     $routeProvider.when('/employees/:employeeId/reports', {templateUrl: 'partials/report-list.html', controller: 'ReportListCtrl'});
-    $routeProvider.otherwise({redirectTo: '/employees'});
+    $routeProvider.otherwise({redirectTo: '/login'});
 }])
 
 
