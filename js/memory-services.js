@@ -71,10 +71,10 @@
 						var loggedIn = localStorage.getItem('loggedIn');						
 						if(!loggedIn){
 						  $http({
-							method:"POST",
+							method:"GET",
 							data: fdata,
 							cache: $angularCacheFactory.get('dataCache'),
-							url:'server/callLDAP.php',
+							url:'server/data.json',
 							//url:'http://www.askthecockerel.com.au/intranet/mobile/callLDAP.php',
 						  }).success(function(data, status){
 							 
