@@ -75,7 +75,7 @@
 							data: fdata,
 							cache: $angularCacheFactory.get('dataCache'),
 							url:'server/data.json',
-							//url:'http://www.askthecockerel.com.au/intranet/mobile/callLDAP.php',
+							
 						  }).success(function(data, status){
 							 
 								// replace invalid image path	
